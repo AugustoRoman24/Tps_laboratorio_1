@@ -1,0 +1,53 @@
+/*
+ * funciones.c
+ *
+ *  Created on: 15 abr. 2022
+ *      Author: augus
+ */
+
+void calcularDescuento(float precio, float* precioFinal, float descuento)
+{
+	*precioFinal = precio * descuento;
+}
+
+void calcularInteres(float precio, float interes, float*precioFinal)
+{
+	*precioFinal = precio * interes;
+}
+
+void Bitcoin(float precio, float bitcoin, float* precioFinal)
+{
+	*precioFinal = precio / bitcoin;
+}
+
+void calcularKm (float precio, float kilometros, float* precioUnitario)
+{
+	*precioUnitario = precio / kilometros;
+}
+
+void calcularDiferencia(float precioLatam, float precioAerolineas, float* diferencia)
+{
+	if (precioLatam > precioAerolineas)
+	{
+		*diferencia = precioLatam - precioAerolineas;
+	}
+	else if (precioAerolineas > precioLatam)
+	{
+		*diferencia = precioAerolineas - precioLatam;
+	}
+	else
+	{
+		*diferencia = 0;
+	}
+
+}
+
+void mostrarResultado(float precioDebito, float precioInteres, float precioBitcoin, float precioUnitario)
+{
+
+	printf("a)Precio con tarjeta de debito es: %.2f",precioDebito);
+	printf("b)Precio con tarjeta de credito es: %.2f",precioInteres);
+	printf("c)Precio pagando bitcoin es: %.2f", precioBitcoin);
+	printf("d)Precio unitario es: %.2f", precioUnitario);
+
+}

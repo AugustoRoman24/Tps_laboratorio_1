@@ -1,0 +1,130 @@
+/*
+ ============================================================================
+ Name        : Tp[1].c
+ Author      : Augusto Alejandro Roman
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "funciones.h"
+
+int main(void) {
+
+	int opcion;
+	float precioLatam;
+	float precioAerolineas;
+	char latamAerolineas;
+	float km;
+	float precioDebitoLatam;
+	float precioDebitoAerolineas;
+	float precioInteresLatam;
+	float precioInteresAerolineas;
+	float precioBitcoinLatam;
+	float precioBitcoinAerolineas;
+	float precioUnitarioLatam;
+	float precioUnitarioAerolineas;
+	float diferencia;
+
+	setbuf(stdout, NULL);
+
+	diferencia = 0;
+	km = 7090;
+	precioUnitarioLatam = 0;
+	precioUnitarioAerolineas = 0;
+	precioBitcoinLatam = 0;
+	precioBitcoinAerolineas = 0;
+	precioDebitoLatam = 0;
+	precioDebitoAerolineas = 0;
+	precioInteresLatam = 0;
+	precioInteresAerolineas = 0;
+	precioLatam = 150339;
+	precioAerolineas = 162965;
+
+
+
+	do{
+		printf("Prueba");
+	printf("\nMenu:"
+			"\n1-Ingresar kilometros."
+			"\n2-Ingresar precio."
+			"\n3-Calcular costos."
+			"\n4-informar datos."
+			"\n5-Carga forzada."
+			"\n6-Salir.");
+
+	fflush(stdin);
+	scanf("%d", &opcion);
+
+
+	switch (opcion) {
+		case 1:
+		printf("Ingrese kilometros");
+		break;
+
+		case 2:
+		printf(
+				"Desea ingresar precio de latam o aerolinea(Latam 'l' y aerolineas 'a'");
+		fflush(stdin);
+		scanf("%c", &latamAerolineas);
+
+		switch (latamAerolineas) {
+			case 'l':
+			printf("Ingrese precio de latam: $ ");
+			fflush(stdin);
+			scanf("%f", &precioLatam);
+			break;
+
+			case 'a':
+			printf("Ingrese precio de aerolineas: $ ");
+			fflush(stdin);
+			scanf("%f", &precioAerolineas);
+			break;
+		}
+		break;
+
+		case 3:
+			calcularDescuento(precioLatam, &precioDebitoLatam, 0.10);
+			calcularDescuento(precioAerolineas, &precioDebitoAerolineas, 0.10);
+			calcularInteres(precioLatam, 1.25, &precioInteresLatam);
+			calcularInteres(precioAerolineas, 1.25, &precioInteresAerolineas);
+			Bitcoin(precioLatam, 4626362.56, &precioBitcoinLatam);
+			Bitcoin(precioAerolineas, 4626362.56, &precioBitcoinAerolineas);
+			calcularKm(precioLatam, km, &precioUnitarioLatam);
+			calcularKm(precioAerolineas, km, &precioUnitarioAerolineas);
+			break;
+
+
+	case 4:
+
+	printf("Latam");
+	mostrarResultado(precioDebitoLatam, precioInteresLatam, precioBitcoinLatam, precioUnitarioLatam);
+	printf("Aerolineas");
+	mostrarResultado(precioDebitoAerolineas, precioInteresAerolineas, precioBitcoinAerolineas, precioUnitarioAerolineas);
+	printf("\n La diferencia de precio es: %.2f", diferencia);
+	break;
+
+
+	case 5:
+	km = 7090;
+	precioAerolineas = 162965;
+	precioLatam = 159339;
+
+	calcularDescuento(precioLatam, &precioDebitoLatam, 0.10);
+	calcularDescuento(precioAerolineas, &precioDebitoAerolineas, 0.10);
+	calcularInteres(precioLatam, 1.25, &precioInteresLatam);
+	calcularInteres(precioAerolineas, 1.25, &precioInteresAerolineas);
+	Bitcoin(precioLatam, 4626362.56, &precioBitcoinLatam);
+	Bitcoin(precioAerolineas, 4626362.56, &precioBitcoinAerolineas);
+	calcularKm(precioLatam, km, &precioUnitarioLatam);
+	calcularKm(precioAerolineas, km, &precioUnitarioAerolineas);
+	calcularDiferencia(precioLatam, precioAerolineas, &diferencia);
+
+	break;
+	}
+}while(opcion != 6);
+return EXIT_SUCCESS;
+}

@@ -1,0 +1,59 @@
+/*
+ * funciones.h
+ *
+ *  Created on: 15 abr. 2022
+ *      Author: augus
+ */
+
+#ifndef FUNCIONES_H_
+#define FUNCIONES_H_
+
+/**
+ * @brief calcularDescuento Aplica el descuento al precio
+ * @param precio precio sin aplicar el descuento
+ * @param precioDebito precio con el descuento aplicado
+ * @param descuento Descuento a aplicar, debe ser menor a 1 y mayor a 0.
+ */
+
+void calcularDescuento(float precio, float* precioFinal, float descuento);
+
+/**
+ * @brief calcularInteres aplica el interes al precio
+ * @param precio sin aplicar el interes
+ * @param precioInteres con el interes aplicado
+ * @param interes aplicado al precio
+ */
+
+/**
+ * @fn void calcularInteres(float, float, float*)
+ * @brief calcu
+ * @param precio
+ * @param interes
+ * @param precioFinal
+ */
+void calcularInteres(float precio, float interes, float*precioFinal);
+/**
+ * @fn void Bitcoin(float, float, float*)
+ * @brief
+ * @param precio
+ * @param bitcoin
+ * @param precioFinal
+ */
+
+
+void Bitcoin(float precio, float bitcoin, float* precioFinal);
+
+
+
+void calcularKm (float precio, float kilometros, float* precioUnitario);
+
+
+
+void CalcularDiferencia(float precioLatam, float precioAerolineas, float* diferencia);
+
+
+void mostrarResultado(float precioDebito, float precioInteres, float precioBitcoin, float precioUnitario);
+
+
+
+#endif /* FUNCIONES_H_ */
